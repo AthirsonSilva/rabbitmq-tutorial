@@ -1,0 +1,33 @@
+rabbitmq:
+    exchange:
+        name: user_exchange
+    queue:
+        name: user_queue
+    routing:
+        key: user_routing_key
+server:
+    port: 8080
+
+spring:
+    rabbitmq:
+        host: localhost
+        password: admin
+        username: admin
+        port: 5672
+
+    data:
+        mongodb:
+            uri: mongodb://root:%40Potter77@localhost:27017/user_db?authSource=admin
+            host: localhost
+            port: 27017
+            database: user_db
+            username: root
+            password: '@Potter77'
+
+
+springdoc:
+    api-docs:
+        path: /api-docs
+    swagger-ui:
+        enabled: true
+        path: /swagger-ui.html
