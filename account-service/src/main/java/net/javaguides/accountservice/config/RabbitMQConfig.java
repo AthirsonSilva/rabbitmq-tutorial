@@ -1,4 +1,4 @@
-package net.javaguides.springboot.config;
+package net.javaguides.accountservice.config;
 
 import org.springframework.amqp.core.*;
 import org.springframework.amqp.rabbit.connection.ConnectionFactory;
@@ -11,33 +11,6 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class RabbitMQConfig {
-    @Value("${rabbitmq.queue.name}")
-    private String queue;
-
-    @Value("${rabbitmq.exchange.name}")
-    private String exchange;
-
-    @Value("${rabbitmq.routing.key}")
-    private String routingKey;
-
-    @Bean
-    public Queue queue(){
-        return new Queue(queue);
-    }
-
-    @Bean
-    public TopicExchange exchange(){
-        return new TopicExchange(exchange);
-    }
-
-    @Bean
-    public Binding binding(){
-        return BindingBuilder
-                .bind(queue())
-                .to(exchange())
-                .with(routingKey);
-    }
-
     @Bean
     public MessageConverter converter(){
         return new Jackson2JsonMessageConverter();

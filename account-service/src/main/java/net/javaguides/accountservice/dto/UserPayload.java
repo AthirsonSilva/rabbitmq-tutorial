@@ -1,10 +1,10 @@
-package net.javaguides.springboot.dto;
+package net.javaguides.accountservice.dto;
 
 import lombok.Data;
 
 @Data
 public class UserPayload {
-    private Integer id;
+    private String id;
     private String firstName;
     private String lastName;
 }
