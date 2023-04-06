@@ -21,6 +21,7 @@ public class UserPublisher {
 
     public void publish(UserPayload userPayload){
         log.info("Sending message {} to exchange {} with routing key {}", userPayload, exchange, userRoutingKey);
+
         rabbitTemplate.convertAndSend(exchange, userRoutingKey, userPayload);
     }
 }
