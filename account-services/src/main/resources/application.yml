@@ -1,0 +1,38 @@
+rabbitmq:
+  exchange:
+    name: user_exchange
+  queue:
+    name: user_queue
+  routing:
+    key: user_routing_key
+
+spring:
+  datasource:
+    url: jdbc:sqlserver://localhost:1433;databaseName=account_db;trustServerCertificate=true;encrypt=true
+    username: sa
+    password: '@Potter77'
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: admin
+    password: admin
+
+  graphql:
+    graphiql:
+      enabled: true
+
+  jpa:
+    database-platform: org.hibernate.dialect.SQLServerDialect
+    hibernate:
+      ddl-auto: update
+
+    properties:
+      hibernate:
+        format_sql: true
+
+    show-sql: true
+
+server:
+  port: 8081

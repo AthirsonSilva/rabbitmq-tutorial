@@ -1,0 +1,24 @@
+type Mutation {
+	create(account: AccountInput!): Account
+}
+
+type Query {
+	findAll: [Account]
+	findById(id: ID!): Account
+}
+
+input AccountInput {
+	username: String!
+	userId: ID!
+	roleId: ID!
+}
+
+
+type Account {
+	id: ID
+	username: String
+	userId: ID
+	roleId: ID
+	createdAt: String
+	updatedAt: String
+}
